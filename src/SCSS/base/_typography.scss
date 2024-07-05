@@ -1,0 +1,22 @@
+
+
+@font-face {
+    font-family: 'MADE Tommy';
+    src: url('../../Fonts/MADE_Tommy_Soft_Regular.otf') format('otf');
+    font-weight: normal;
+  }
+  @font-face {
+    font-family: 'MADE Tommy';
+    src: url('../../Fonts/MADE_Tommy_Soft_Medium.otf') format('otf');
+    font-weight: Medium;
+  }
+  @font-face {
+    font-family: 'MADE Tommy';
+    src: url('../../Fonts/MADE_Tommy_Soft_Bold.otf') format('otf');
+    font-weight: bold;
+  }
+
+
+* {
+    font-family: "Made Tommy";
+}

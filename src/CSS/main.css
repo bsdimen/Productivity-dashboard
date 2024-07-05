@@ -1,17 +1,57 @@
-/* Error: Can't find stylesheet to import.
- *   ,
- * 1 | @import "./base/_rest.scss"
- *   |         ^^^^^^^^^^^^^^^^^^^
- *   '
- *   main.scss 1:9  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @import \"./base/_rest.scss\"\a   \2502          ^^^^^^^^^^^^^^^^^^^\a   \2575 \a   main.scss 1:9  root stylesheet";
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
 }
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+@font-face {
+  font-family: "MADE Tommy";
+  src: url("../../Fonts/MADE_Tommy_Soft_Regular.otf") format("otf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "MADE Tommy";
+  src: url("../../Fonts/MADE_Tommy_Soft_Medium.otf") format("otf");
+  font-weight: Medium;
+}
+@font-face {
+  font-family: "MADE Tommy";
+  src: url("../../Fonts/MADE_Tommy_Soft_Bold.otf") format("otf");
+  font-weight: bold;
+}
+* {
+  font-family: "Made Tommy";
+}
+
+.center-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login {
+  height: 100vh;
+}
+
+.login-input {
+  display: block;
+  padding: 15px 24px;
+  margin-bottom: 20px;
+  border-radius: 40px;
+  border: 1px solid #222;
+}
+
+/*# sourceMappingURL=main.css.map */
