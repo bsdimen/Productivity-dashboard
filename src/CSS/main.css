@@ -19,21 +19,22 @@ a {
 
 @font-face {
   font-family: "MADE Tommy";
-  src: url("../../Fonts/MADE_Tommy_Soft_Regular.otf") format("otf");
+  src: url("../Fonts/MADE_Tommy_Soft_Regular.otf") format("opentype");
   font-weight: normal;
 }
 @font-face {
   font-family: "MADE Tommy";
-  src: url("../../Fonts/MADE_Tommy_Soft_Medium.otf") format("otf");
+  src: url("../Fonts/MADE_Tommy_Soft_Medium.otf") format("opentype");
   font-weight: Medium;
 }
 @font-face {
   font-family: "MADE Tommy";
-  src: url("../../Fonts/MADE_Tommy_Soft_Bold.otf") format("otf");
+  src: url("../Fonts/MADE_Tommy_Soft_Bold.otf") format("opentype");
   font-weight: bold;
 }
-* {
-  font-family: "Made Tommy";
+body {
+  font-family: "MADE Tommy";
+  font-weight: normal;
 }
 
 .center-box {
