@@ -19,22 +19,31 @@ a {
 
 @font-face {
   font-family: "MADE Tommy";
+  src: url("../Fonts/MADE_Tommy_Soft_Thin.otf") format("opentype");
+  font-weight: 100;
+}
+@font-face {
+  font-family: "MADE Tommy";
   src: url("../Fonts/MADE_Tommy_Soft_Regular.otf") format("opentype");
-  font-weight: normal;
+  font-weight: 300;
+  letter-spacing: 3px;
 }
 @font-face {
   font-family: "MADE Tommy";
   src: url("../Fonts/MADE_Tommy_Soft_Medium.otf") format("opentype");
-  font-weight: Medium;
+  font-weight: 500;
+  letter-spacing: 3px;
 }
 @font-face {
   font-family: "MADE Tommy";
   src: url("../Fonts/MADE_Tommy_Soft_Bold.otf") format("opentype");
-  font-weight: bold;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 body {
   font-family: "MADE Tommy";
-  font-weight: normal;
+  font-weight: 300;
+  letter-spacing: 3px;
 }
 
 .center-box {
@@ -43,16 +52,55 @@ body {
   align-items: center;
 }
 
+.primary-btn {
+  background-color: transparent;
+  background-color: #002C2F;
+  color: #E1F296;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 40px;
+  width: 290px;
+  padding: 15px 12px;
+}
+
+.shadow-btn {
+  display: block;
+  font-size: 15px;
+  color: #E1F296;
+  font-weight: 300;
+  background-color: transparent;
+}
+
 .login {
   height: 100vh;
+  background-image: url("../../public/ASSETS/login-background.svg");
+}
+.login label {
+  font-size: 12px;
+  font-weight: 200;
+  color: #fff;
+  margin-bottom: 18px;
 }
 
 .login-input {
   display: block;
-  padding: 15px 24px;
-  margin-bottom: 20px;
-  border-radius: 40px;
-  border: 1px solid #222;
+  width: 290px;
+  padding: 15px 12px;
+  margin-block: 8px 30px;
+  border-radius: 8px;
+  font-size: 18px;
+  color: #002C2F;
+  box-shadow: 0 14px 20px hsla(183, 100%, 9%, 0.2);
+}
+
+.login-input::placeholder {
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.login-input:focus {
+  outline: none;
+  border: 2px solid #01565B;
 }
 
 /*# sourceMappingURL=main.css.map */
