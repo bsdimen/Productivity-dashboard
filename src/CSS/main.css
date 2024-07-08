@@ -42,8 +42,7 @@ a {
 }
 body {
   font-family: "MADE Tommy";
-  font-weight: 300;
-  letter-spacing: 3px;
+  font-weight: 200;
 }
 
 .center-box {
@@ -67,7 +66,7 @@ body {
   display: block;
   font-size: 15px;
   color: #E1F296;
-  font-weight: 300;
+  font-weight: 200;
   background-color: transparent;
 }
 
