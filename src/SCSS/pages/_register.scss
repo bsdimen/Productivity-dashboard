@@ -1,0 +1,122 @@
+.register-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    grid-row: 1;
+    height: 100lvh;
+   
+}
+.register-heading {
+    background-image: url("../../public/ASSETS/login-background.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+    padding-inline: 50px;
+    color: $dark-blue;
+}
+.register {
+    background-color: #fff;
+    // width: 500px;
+    height: inherit;
+    padding: 50px 30px;
+    border-radius:0 0 0 80px;
+    h1 {
+        color: $dark-blue;
+        margin-bottom: 4px;
+    }
+    p {
+        color: $light-blue;
+        margin-bottom: 18px;
+    }
+    .offscreen {
+        display: none;
+        transition: 0.1ms ease-in-out display;
+    }
+    .instructions {
+        display: block;
+        background-color: hsl(0, 86%, 67%);
+        color: #fff;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 18px;
+        padding: 12px;
+        border-radius: 8px;
+        position: relative;
+        transition: 0.1ms ease-in-out display;
+        .info_icon {
+            width: 16px;
+            position: absolute;
+            top: 10px;
+        }
+    }
+    .register-btn {
+        background-color: $accent-color;
+        color: $dark-blue;
+        font-family: 'Nunito',sans-serif;
+        font-size: 20px;
+        font-weight: 800;
+        border-radius: 40px;
+        padding: 21px;
+        width: 100%;
+    }
+    button {
+        opacity: 1;
+    }
+    button:disabled {
+        opacity: 0.6;
+    }
+    .show-password-block {
+        display: flex;
+        align-items: center;
+        margin-top: -20px;
+        margin-left: 65%;
+        input[type="checkbox"] {
+            border: 1.5px solid $dark-blue;
+            width: 15px;
+            height: 15px;
+            margin-right: 8px;
+            margin-left: 18px;
+            appearance: none;
+            -webkit-appearance: none;
+            position: relative;
+        }
+        
+        input[type="checkbox"]::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 4px;
+            width: 4px;
+            height: 8px;
+            border: solid $dark-blue; 
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            opacity: 0; /* Hide by default */
+            transition: opacity 0.2s;
+        }
+        
+        /* Show checkmark when checked */
+        input[type="checkbox"]:checked::before {
+            opacity: 1;
+        }
+        .showPasswordLabel { 
+            font-weight: 700;
+            font-size: 16px;
+        }
+          
+    }
+    .login-link {
+        width: 100%;
+        text-align: center;
+        font-weight: 500;
+        margin-top: 80px;
+        text-decoration: underline;
+        color: $dark-blue;
+
+    }
+}

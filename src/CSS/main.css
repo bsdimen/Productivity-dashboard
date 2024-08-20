@@ -1,9 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&display=swap");
 * {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
-  font: inherit;
   vertical-align: baseline;
   box-sizing: border-box;
 }
@@ -17,38 +16,34 @@ a {
   color: inherit;
 }
 
-@font-face {
-  font-family: "MADE Tommy";
-  src: url("../Fonts/MADE_Tommy_Soft_Thin.otf") format("opentype");
-  font-weight: 100;
-}
-@font-face {
-  font-family: "MADE Tommy";
-  src: url("../Fonts/MADE_Tommy_Soft_Regular.otf") format("opentype");
-  font-weight: 300;
-  letter-spacing: 3px;
-}
-@font-face {
-  font-family: "MADE Tommy";
-  src: url("../Fonts/MADE_Tommy_Soft_Medium.otf") format("opentype");
-  font-weight: 500;
-  letter-spacing: 3px;
-}
-@font-face {
-  font-family: "MADE Tommy";
-  src: url("../Fonts/MADE_Tommy_Soft_Bold.otf") format("opentype");
-  font-weight: 700;
-  letter-spacing: 1px;
-}
 body {
-  font-family: "MADE Tommy";
-  font-weight: 200;
+  font-family: "Nunito", sans-serif;
 }
 
-.center-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+h1 {
+  font-weight: 800;
+}
+
+.input-field {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-block: 8px 30px;
+  font-family: "Nunito", sans-serif;
+  font-size: 18px;
+  color: #002C2F;
+  background-color: transparent;
+  border-bottom: 2px solid rgba(145, 145, 145, 0.164);
+}
+
+.input-field::placeholder {
+  font-weight: 400;
+  color: rgb(145, 145, 145);
+}
+
+.input-field:focus {
+  outline: none;
+  border-bottom: 2px solid #01565B;
 }
 
 .primary-btn {
@@ -81,25 +76,123 @@ body {
   margin-bottom: 18px;
 }
 
-.login-input {
-  display: block;
-  width: 290px;
-  padding: 15px 12px;
-  margin-block: 8px 30px;
-  border-radius: 8px;
-  font-size: 18px;
+.register-container {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-row: 1;
+  height: 100lvh;
+}
+
+.register-heading {
+  background-image: url("../../public/ASSETS/login-background.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+  padding-inline: 50px;
   color: #002C2F;
-  box-shadow: 0 14px 20px hsla(183, 100%, 9%, 0.2);
 }
 
-.login-input::placeholder {
-  font-weight: 300;
-  font-size: 12px;
+.register {
+  background-color: #fff;
+  height: inherit;
+  padding: 50px 30px;
+  border-radius: 0 0 0 80px;
 }
-
-.login-input:focus {
-  outline: none;
-  border: 2px solid #01565B;
+.register h1 {
+  color: #002C2F;
+  margin-bottom: 4px;
+}
+.register p {
+  color: #2d5d61;
+  margin-bottom: 18px;
+}
+.register .offscreen {
+  display: none;
+  transition: 0.1ms ease-in-out display;
+}
+.register .instructions {
+  display: block;
+  background-color: hsl(0, 86%, 67%);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+  padding: 12px;
+  border-radius: 8px;
+  position: relative;
+  transition: 0.1ms ease-in-out display;
+}
+.register .instructions .info_icon {
+  width: 16px;
+  position: absolute;
+  top: 10px;
+}
+.register .register-btn {
+  background-color: hsl(71, 86%, 67%);
+  color: #002C2F;
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  border-radius: 40px;
+  padding: 21px;
+  width: 100%;
+}
+.register button {
+  opacity: 1;
+}
+.register button:disabled {
+  opacity: 0.6;
+}
+.register .show-password-block {
+  display: flex;
+  align-items: center;
+  margin-top: -20px;
+  margin-left: 65%;
+  /* Show checkmark when checked */
+}
+.register .show-password-block input[type=checkbox] {
+  border: 1.5px solid #002C2F;
+  width: 15px;
+  height: 15px;
+  margin-right: 8px;
+  margin-left: 18px;
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+}
+.register .show-password-block input[type=checkbox]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 4px;
+  width: 4px;
+  height: 8px;
+  border: solid #002C2F;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0; /* Hide by default */
+  transition: opacity 0.2s;
+}
+.register .show-password-block input[type=checkbox]:checked::before {
+  opacity: 1;
+}
+.register .show-password-block .showPasswordLabel {
+  font-weight: 700;
+  font-size: 16px;
+}
+.register .login-link {
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+  margin-top: 80px;
+  text-decoration: underline;
+  color: #002C2F;
 }
 
 /*# sourceMappingURL=main.css.map */

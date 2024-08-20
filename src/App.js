@@ -1,17 +1,15 @@
-import {RouterProvider,Route,createBrowserRouter,createRoutesFromElements} from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
+import {RouterProvider,Routes,Route,createBrowserRouter,createRoutesFromElements} from 'react-router-dom';
 
-import Login from './PAGES/login';
+
 import RootLayout from './COMPONENTS/RootLayout'
+import SignUp from './PAGES/signUp';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Login />}>
-       <Route index element={<Login />}/>
-    </Route>
-    )
-)
+    <Route path="/" element={<SignUp />}/>
+  )
+);
+ 
         
 
 function App() {
