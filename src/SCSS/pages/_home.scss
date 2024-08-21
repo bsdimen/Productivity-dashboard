@@ -1,0 +1,29 @@
+.home-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    grid-row: 1;
+    height: 100lvh;
+   
+}
+.home-heading {
+    background-image: url("../../public/ASSETS/login-background.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+    padding-inline: 50px;
+    color: $dark-blue;
+}
+.home-inputs {
+    background-color: #fff;
+    padding: 50px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+}

@@ -65,25 +65,14 @@ h1 {
   background-color: transparent;
 }
 
-.login {
-  height: 100vh;
-  background-image: url("../../public/ASSETS/login-background.svg");
-}
-.login label {
-  font-size: 12px;
-  font-weight: 200;
-  color: #fff;
-  margin-bottom: 18px;
-}
-
-.register-container {
+.home-container {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   grid-row: 1;
   height: 100lvh;
 }
 
-.register-heading {
+.home-heading {
   background-image: url("../../public/ASSETS/login-background.svg");
   background-position: center;
   background-size: cover;
@@ -98,10 +87,68 @@ h1 {
   color: #002C2F;
 }
 
+.home-inputs {
+  background-color: #fff;
+  padding: 50px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+}
+
+.navbar {
+  height: 100%;
+  min-height: 100vh;
+  width: fit-content;
+  border: 1px solid #d3d3d3;
+  position: relative;
+}
+.navbar .logo-container {
+  padding: 30px;
+}
+.navbar .logo-container .logo {
+  width: 30px;
+}
+.navbar header {
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+  grid-column: 1;
+  gap: 40px;
+}
+.navbar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.navbar nav .nav-link {
+  padding: 10px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 12px;
+}
+.navbar nav .nav-link span {
+  font-weight: 500;
+  color: #000e0f;
+}
+.navbar nav .nav-link.active {
+  border-right: 3px solid #01565B;
+}
+.navbar nav .nav-link.active img {
+  stroke: #d3d3d3;
+}
+.navbar .sideBar-btn {
+  position: absolute;
+  appearance: none;
+  background-color: transparent;
+  bottom: 20px;
+  left: 30px;
+}
+
 .register {
   background-color: #fff;
+  width: 100%;
   height: inherit;
-  padding: 50px 30px;
   border-radius: 0 0 0 80px;
 }
 .register h1 {
@@ -187,6 +234,99 @@ h1 {
   font-size: 16px;
 }
 .register .login-link {
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+  margin-top: 80px;
+  text-decoration: underline;
+  color: #002C2F;
+}
+
+.login-container {
+  background-color: #fff;
+  width: 100%;
+  height: inherit;
+  border-radius: 0 0 0 80px;
+}
+.login-container h1 {
+  color: #002C2F;
+  margin-bottom: 4px;
+}
+.login-container p {
+  color: #2d5d61;
+  margin-bottom: 18px;
+}
+.login-container .instructions {
+  display: block;
+  background-color: hsl(0, 86%, 67%);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+  padding: 12px;
+  border-radius: 8px;
+  position: relative;
+  transition: 0.1ms ease-in-out display;
+}
+.login-container .instructions .info_icon {
+  width: 16px;
+  position: absolute;
+  top: 10px;
+}
+.login-container .login-btn {
+  background-color: hsl(71, 86%, 67%);
+  color: #002C2F;
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  border-radius: 40px;
+  padding: 21px;
+  width: 100%;
+}
+.login-container button {
+  opacity: 1;
+}
+.login-container button:disabled {
+  opacity: 0.6;
+}
+.login-container .show-password-block {
+  display: flex;
+  align-items: center;
+  margin-top: -20px;
+  margin-left: 65%;
+  /* Show checkmark when checked */
+}
+.login-container .show-password-block input[type=checkbox] {
+  border: 1.5px solid #002C2F;
+  width: 15px;
+  height: 15px;
+  margin-right: 8px;
+  margin-left: 18px;
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+}
+.login-container .show-password-block input[type=checkbox]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 4px;
+  width: 4px;
+  height: 8px;
+  border: solid #002C2F;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0; /* Hide by default */
+  transition: opacity 0.2s;
+}
+.login-container .show-password-block input[type=checkbox]:checked::before {
+  opacity: 1;
+}
+.login-container .show-password-block .showPasswordLabel {
+  font-weight: 700;
+  font-size: 16px;
+}
+.login-container .login-link {
   width: 100%;
   text-align: center;
   font-weight: 500;

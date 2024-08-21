@@ -2,9 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // =======================ICONS======================
-import info_icon from "../ASSETS/info-icon.svg";
+import info_icon from "../../ASSETS/info-icon.svg";
 // =======================SERVICE======================
-import {handleSignUp} from "../SERVICES/signUpServ";
+import {handleSignUp} from "../../SERVICES/signUpServ";
 
 // =======================Regex======================
 const userRegex = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
@@ -76,11 +76,6 @@ const SignUp = () => {
     }
 
     return (
-        <div className="register-container">
-            <div className='register-heading'>
-                <h1>Unlock Your Full Potential</h1>
-                <h2>Streamline your tasks, stay focused, and achieve more with our productivity app.</h2>
-            </div>
             <div className='register'>
                 <h1>Create new account</h1>
                 <p>Join us for an enhanced productivity experience.</p>
@@ -162,7 +157,6 @@ const SignUp = () => {
                 </div>
                 <Link to={""} className='login-link'>Already have an Account</Link>
             </div>
-        </div>
     );
 }
 

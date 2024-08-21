@@ -1,29 +1,8 @@
-.register-container {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    grid-row: 1;
-    height: 100lvh;
-   
-}
-.register-heading {
-    background-image: url("../../public/ASSETS/login-background.svg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%;
-    display: flex;
-    align-items: start;
-    justify-content: center;
-    flex-direction: column;
-    gap: 16px;
-    padding-inline: 50px;
-    color: $dark-blue;
-}
+
 .register {
     background-color: #fff;
-    // width: 500px;
+    width: 100%;
     height: inherit;
-    padding: 50px 30px;
     border-radius:0 0 0 80px;
     h1 {
         color: $dark-blue;
