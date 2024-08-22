@@ -13,6 +13,7 @@ export const handleLogin = async (email, pwd) => {
         if (user) {
             if (user.password === pwd) {
                 console.log("Login successful");
+                localStorage.setItem('authToken', 'some-token-value');
                 return true;
             } else {
                 console.log("Password incorrect");

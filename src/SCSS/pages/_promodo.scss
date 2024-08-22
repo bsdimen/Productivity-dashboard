@@ -1,0 +1,16 @@
+.promodo-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    .promodo-circle {
+        width: 350px;
+        height: 350px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $accent-color;
+        
+    }
+}

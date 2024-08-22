@@ -1,0 +1,34 @@
+.timer {
+    .timer-heading {
+        font-size: 60px;
+        color: $dark-blue;
+    }
+    .timer-buttons {
+        margin-top: 25px;
+        display: flex;
+        flex-direction: row;
+    }
+    button {
+        width: 100%;
+        font-weight: 500;
+        color: $dark-blue;
+        text-align: center;
+        background-color: transparent;
+        cursor: pointer;
+        img {
+            transform: scale(1.3);
+        }
+    }
+    button:hover {
+        text-decoration: underline;
+        font-weight: 700;
+
+    }
+    button:disabled  {
+        cursor:default;
+        img {
+            opacity: 0.3;
+        }
+    }
+}
+
