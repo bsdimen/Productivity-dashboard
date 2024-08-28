@@ -27,13 +27,14 @@ const Timer = ({timeSelected}) => {
     const formattedMinutes = String(minutes).padStart(2, '0');
     const formattedSeconds = String(seconds).padStart(2, '0');
 
+    
     return (
         <div className='timer'>
             <h1 className='timer-heading'><span>{formattedHours}</span>:<span>{formattedMinutes}</span>:<span>{formattedSeconds}</span></h1>
             <div className='timer-buttons'>
                 <button onClick={restart}><img src={restart_icon}/></button>
-                <button onClick={isRunning ? pause : ""}  disabled={!isRunning}><img src={pause_icon}/></button>
-                <button onClick={!isRunning ? resume : ""} disabled={isRunning}><img src={play_icon}/></button>
+                <button onClick={isRunning ? pause : undefined}  disabled={!isRunning}><img src={pause_icon}/></button>
+                <button onClick={!isRunning ? resume : undefined} disabled={isRunning}><img src={play_icon}/></button>
             </div>
             
         </div>

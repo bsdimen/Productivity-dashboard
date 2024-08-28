@@ -1,3 +1,4 @@
+import React from 'react';
 import {RouterProvider,Routes,Route,createBrowserRouter,createRoutesFromElements, Navigate } from 'react-router-dom';
 
 
@@ -5,7 +6,7 @@ import Home from './PAGES/home';
 
 import SignUp from './COMPONENTS/ui/signUp';
 import Login from './COMPONENTS/ui/login';
-import ProtectedRoute from './COMPONENTS/Feauters/ProtectedRoute ';
+import ProtectedRoute from './COMPONENTS/Modules/ProtectedRoute ';
 import Dashboard from './PAGES/dashboard';
 import Promodo from './PAGES/promodo';
 import Tasks from './PAGES/tasks';

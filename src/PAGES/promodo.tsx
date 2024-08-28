@@ -6,7 +6,7 @@ import Timer from "../COMPONENTS/ui/timer"
 
 const Promodo = () => {
 
-    const [timerVisibilty,setTimerVisibilty] = useState(false);
+    const [timerVisibilty, setTimerVisibilty] = useState(false);
 
     const handletimer = () => {
         setTimerVisibilty(true);
@@ -16,8 +16,8 @@ const Promodo = () => {
             <SideNavBar />
             <div className='promodo-page'>
                 <div className='promodo-circle'>
-                   { !timerVisibilty && <button onClick={handletimer} className='promodo-btn'>Start</button>}
-                   { timerVisibilty && <Timer timeSelected={400} />}
+                    {!timerVisibilty && <button onClick={handletimer} className='promodo-btn'>Start</button>}
+                    {timerVisibilty && <Timer timeSelected={400} />}
 
                 </div>
             </div>

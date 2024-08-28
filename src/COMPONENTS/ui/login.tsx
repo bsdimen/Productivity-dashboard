@@ -76,7 +76,7 @@ const Login = () => {
                     <img className="info_icon" src={info_icon} />
                     This is not a valid email
                 </p>
-            <NavLink to={""} className='login-link'>You don't have an Account</NavLink>
+            <NavLink to={"/signup"} className='login-link'>You don't have an Account</NavLink>
         </section>
 )}
 
