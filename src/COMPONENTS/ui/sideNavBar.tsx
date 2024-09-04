@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 
-import logo from "../../ASSETS/logo.svg"
+import {Logo} from "../../COMPONENTS/ui/icons"
 
-import graph_icon from "../../ASSETS/graph-icon.svg";
-import timer_icon from "../../ASSETS/timer-icon.svg";
-import task_icon from "../../ASSETS/task-icon.svg";
-import logout_icon from "../../ASSETS/logout-icon.svg";
-import side_bar from "../../ASSETS/sidebar-left-icon.svg";
+import {GraphIcon} from "../../COMPONENTS/ui/icons";
+import {TimerIcon} from "../../COMPONENTS/ui/icons";
+import {TaskIcon} from "../../COMPONENTS/ui/icons";
+import {LogOutIcon} from "../../COMPONENTS/ui/icons";
+import {SideBarLeftIcon} from "../../COMPONENTS/ui/icons";
 import Dashboard from '../../PAGES/dashboard';
 
 
@@ -32,16 +32,16 @@ const SideNavBar = () => {
              <div className='navbar'>
                 <header>
                     <div className='logo-container'>
-                        <img className="logo" src={logo} />
+                        <Logo />
                     </div>
                     <nav>
-                        <NavLink className="nav-link" to="/dashboard"><img src={graph_icon}/>{isNavTitleVisible && <span>Dashboard</span>}</NavLink>
-                        <NavLink className="nav-link" to="/promodo"><img src={timer_icon}/>{isNavTitleVisible && <span>Promodo</span>}</NavLink>
-                        <NavLink className="nav-link" to="/tasks"><img src={task_icon}/>{isNavTitleVisible && <span>Tasks</span>}</NavLink>
-                        <NavLink className="nav-link" to="/logout"><img src={logout_icon}/>{isNavTitleVisible && <span>Logout</span>}</NavLink>
+                        <NavLink className="nav-link" to="/dashboard"><GraphIcon />{isNavTitleVisible && <span>Dashboard</span>}</NavLink>
+                        <NavLink className="nav-link" to="/promodo"><TimerIcon />{isNavTitleVisible && <span>Promodo</span>}</NavLink>
+                        <NavLink className="nav-link" to="/tasks"><TaskIcon />{isNavTitleVisible && <span>Tasks</span>}</NavLink>
+                        <NavLink className="nav-link" to="/logout"><LogOutIcon />{isNavTitleVisible && <span>Logout</span>}</NavLink>
                     </nav>
 
-                    <button className='sideBar-btn' onClick={handleButtonClick}><img src={side_bar}/></button>
+                    <button className='sideBar-btn' onClick={handleButtonClick}><SideBarLeftIcon /></button>
                 </header>
              </div>
              <section>

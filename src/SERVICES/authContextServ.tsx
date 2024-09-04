@@ -1,10 +1,20 @@
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
-// Create AuthContext
-const AuthContext = createContext();
 
-export function AuthProvider({ children }) {
+
+interface  AuthProviderProps {
+  children: ReactNode;
+}
+
+interface AuthContextType {
+  isAuthenticated: boolean;
+  setIsAuthenticated:(isAuthenticated: boolean)=> void;
+}
+
+const AuthContext = createContext<AuthContextType|null>(null);
+
+export function AuthProvider({ children }: AuthProviderProps) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {

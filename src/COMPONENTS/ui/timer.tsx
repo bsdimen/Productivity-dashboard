@@ -1,11 +1,16 @@
 import React from 'react';
 import { useTimer } from 'react-timer-hook';
 
-import pause_icon from "../../ASSETS/vuesax/linear/pause-icon.svg";
-import restart_icon from "../../ASSETS/rotate-left-icon.svg";
-import play_icon from "../../ASSETS/arrow-right-icon.svg"
 
-const Timer = ({timeSelected}) => {
+import {TimerPauseIcon} from "./icons";
+import {TimerStartIcon} from "./icons";
+import {RotateLeftIcon} from "./icons";
+
+interface TimerProps {
+    timeSelected: number;
+}
+
+const Timer : React.FC<TimerProps> = ({ timeSelected }) =>  {
 
     const time = new Date();
     time.setSeconds(time.getSeconds() + timeSelected);
@@ -32,9 +37,9 @@ const Timer = ({timeSelected}) => {
         <div className='timer'>
             <h1 className='timer-heading'><span>{formattedHours}</span>:<span>{formattedMinutes}</span>:<span>{formattedSeconds}</span></h1>
             <div className='timer-buttons'>
-                <button onClick={restart}><img src={restart_icon}/></button>
-                <button onClick={isRunning ? pause : undefined}  disabled={!isRunning}><img src={pause_icon}/></button>
-                <button onClick={!isRunning ? resume : undefined} disabled={isRunning}><img src={play_icon}/></button>
+                <button onClick={(e: React.MouseEvent<HTMLButtonElement>) => restart}><RotateLeftIcon /></button>
+                <button onClick={isRunning ? pause : undefined}  disabled={!isRunning}><TimerPauseIcon /></button>
+                <button onClick={!isRunning ? resume : undefined} disabled={isRunning}><TimerStartIcon /></button>
             </div>
             
         </div>

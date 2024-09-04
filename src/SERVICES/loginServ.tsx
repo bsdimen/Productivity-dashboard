@@ -1,49 +1,33 @@
-import React from 'react';
-import { useQuery, useQueryClient, useMutation, UseMutateFunction } from '@tanstack/react-query';
-import { useNavigate } from 'react-router-dom';
-import {User} from "../TYPES/USER"
+import { useQuery, QueryFunctionContext } from '@tanstack/react-query';
+import axios from 'axios';
+import { User } from '../TYPES/USER';
 
-async function login(email: string, password: string): Promise<User> {
-    const response = await fetch('/api/auth/signin', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email, password })
+interface LoginParams {
+  email: string;
+  password: string;
+}
+const fetchUser = async ({ email, password }: LoginParams): Promise<User> => {
+
+  const response = await axios.post('http//localhost:3500/users', { email, password });
+  if (response) {
+    console.log(response)
+    return response.data;
+  }
+  else {
+    throw new Error("you forgot your password");
+  }
+};
+
+export const useLogin = (email: string, password: string) => {
+
+  const shouldQuery = !!email && !!password;
+
+  if (shouldQuery) {
+    const query = useQuery({
+      queryKey: ["login"],
+      queryFn: () => { fetchUser },
     })
-    if (!response.ok)
-      throw new Error('Failed on sign in request');
-      
-  
-    return await response.json();
-  }
-  
-  type IUseSignIn = UseMutateFunction<User, unknown, {
-    email: string;
-    password: string;
-  }, unknown>
-  
-  export function useSignIn(): IUseSignIn {
-    const queryClient = useQueryClient();
-    const navigate = useNavigate();
-    const { enqueueSnackbar } = useSnackbar();
-  
-    const { mutate: signInMutation } = useMutation<User, unknown, { email: string, password: string }, unknown>(
-      ({
-        email,
-        password
-      }) => login(email, password), {
-      onSuccess: (data) => {
-        // TODO: save the user in the state
-        navigate('/');
-      },
-      onError: (error) => {
-        enqueueSnackbar('Ops.. Error on sign in. Try again!', {
-          variant: 'error'
-        });
-      }
-    });
-  
-    return signInMutation
+    return query
   }
 
+}

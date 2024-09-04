@@ -1,16 +1,18 @@
 import React from 'react';
-import {RouterProvider,Routes,Route,createBrowserRouter,createRoutesFromElements, Navigate } from 'react-router-dom';
+import { RouterProvider, Routes, Route, createBrowserRouter, createRoutesFromElements, Navigate } from 'react-router-dom';
 
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 import Home from './PAGES/home';
-
 import SignUp from './COMPONENTS/ui/signUp';
 import Login from './COMPONENTS/ui/login';
-import ProtectedRoute from './COMPONENTS/Modules/ProtectedRoute ';
+import ProtectedRoute from './COMPONENTS/Modules/ProtectedRoute';
 import Dashboard from './PAGES/dashboard';
 import Promodo from './PAGES/promodo';
 import Tasks from './PAGES/tasks';
 
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,12 +31,15 @@ const router = createBrowserRouter(
 
   )
 );
- 
-        
+
+
 
 function App() {
   return (
-    <RouterProvider router={router} />
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 }
 

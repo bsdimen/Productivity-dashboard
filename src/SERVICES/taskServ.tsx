@@ -1,12 +1,15 @@
 import axios from "axios";
 
-export const showTasksList = async (id) => {
+interface showTasksListProps {
+  id: number;
+}
+export const showTasksList = async (id : showTasksListProps)  => {
     try {
         const response = await axios.get("http://localhost:3500/taskslists"); // Adjust path as necessary
 
         if (response && response.data) {
-          const userTasks = response.data.find(user => user.id === id)?.tasks || [];
-          console.log(userTasks);
+          // const userTasks = response.data.find(user => user.id === id)?.tasks || [];
+          // console.log(userTasks);
         }else {
           console.log("WEWE");
 

@@ -17,7 +17,7 @@ const Tasks = () => {
                 <h2>The title of the framework</h2>
                 <p className='framework-description'>lorem*5</p>
                 <div className='tasks'>
-                     { console.log(tasksList) }
+                     {/* { console.log(tasksList) } */}
                 </div>
                 
             </div>

@@ -1,7 +1,15 @@
 
 export const getLoggedUser = () => {
-    const user = JSON.parse(localStorage.getItem('loggedUser'));
-    return user || null; // Return the user object or null if not found
+  
+  const loggedUser = localStorage.getItem('loggedUser');
+  if(loggedUser) {
+    const user = JSON.parse(loggedUser);
+    return user;
+  }
+  else {
+    return null;
+  }
+    
   };
   
 

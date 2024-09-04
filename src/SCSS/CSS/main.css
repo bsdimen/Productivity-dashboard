@@ -1,0 +1,421 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+}
+
+h1 {
+  font-weight: 800;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.input-field {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-block: 8px 30px;
+  font-family: "Nunito", sans-serif;
+  font-size: 18px;
+  color: #002C2F;
+  background-color: transparent;
+  border-bottom: 2px solid rgba(145, 145, 145, 0.164);
+}
+
+.input-field::placeholder {
+  font-weight: 400;
+  color: rgb(145, 145, 145);
+}
+
+.input-field:focus {
+  outline: none;
+  border-bottom: 2px solid #01565B;
+}
+
+button {
+  font-family: "Nunito", sans-serif;
+}
+
+.primary-btn {
+  background-color: transparent;
+  background-color: #002C2F;
+  color: #E1F296;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 40px;
+  width: 290px;
+  padding: 15px 12px;
+}
+
+.shadow-btn {
+  display: block;
+  font-size: 15px;
+  color: #E1F296;
+  font-weight: 200;
+  background-color: transparent;
+}
+
+.promodo-btn {
+  font-size: 60px;
+  font-weight: 700;
+  color: #002C2F;
+  background-color: transparent;
+}
+
+.navbar {
+  height: 100%;
+  min-height: 100vh;
+  width: fit-content;
+  border: 1px solid #d3d3d3;
+  position: relative;
+}
+.navbar .logo-container {
+  padding: 30px;
+}
+.navbar .logo-container .logo {
+  width: 30px;
+}
+.navbar header {
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+  grid-column: 1;
+  gap: 40px;
+}
+.navbar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.navbar nav .nav-link {
+  padding: 10px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 12px;
+}
+.navbar nav .nav-link span {
+  font-weight: 500;
+  color: #000e0f;
+}
+.navbar nav .nav-link.active {
+  border-right: 3px solid #01565B;
+}
+.navbar nav .nav-link.active img {
+  stroke: #d3d3d3;
+}
+.navbar .sideBar-btn {
+  position: absolute;
+  appearance: none;
+  background-color: transparent;
+  bottom: 20px;
+  left: 30px;
+}
+
+.timer .timer-heading {
+  font-size: 60px;
+  color: #002C2F;
+}
+.timer .timer-buttons {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: row;
+}
+.timer button {
+  width: 100%;
+  font-weight: 500;
+  color: #002C2F;
+  text-align: center;
+  background-color: transparent;
+  cursor: pointer;
+}
+.timer button img {
+  transform: scale(1.3);
+}
+.timer button:hover {
+  text-decoration: underline;
+  font-weight: 700;
+}
+.timer button:disabled {
+  cursor: default;
+}
+.timer button:disabled img {
+  opacity: 0.3;
+}
+
+.register {
+  background-color: #fff;
+  width: 100%;
+  height: inherit;
+  border-radius: 0 0 0 80px;
+}
+.register h1 {
+  color: #002C2F;
+  margin-bottom: 4px;
+}
+.register p {
+  color: #2d5d61;
+  margin-bottom: 18px;
+}
+.register .offscreen {
+  display: none;
+  transition: 0.1ms ease-in-out display;
+}
+.register .instructions {
+  display: block;
+  background-color: hsl(0, 86%, 67%);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+  padding: 12px;
+  border-radius: 8px;
+  position: relative;
+  transition: 0.1ms ease-in-out display;
+}
+.register .instructions .info_icon {
+  width: 16px;
+  position: absolute;
+  top: 10px;
+}
+.register .register-btn {
+  background-color: hsl(71, 86%, 67%);
+  color: #002C2F;
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  border-radius: 40px;
+  padding: 21px;
+  width: 100%;
+}
+.register button {
+  opacity: 1;
+}
+.register button:disabled {
+  opacity: 0.6;
+}
+.register .show-password-block {
+  display: flex;
+  align-items: center;
+  margin-top: -20px;
+  margin-left: 65%;
+  /* Show checkmark when checked */
+}
+.register .show-password-block input[type=checkbox] {
+  border: 1.5px solid #002C2F;
+  width: 15px;
+  height: 15px;
+  margin-right: 8px;
+  margin-left: 18px;
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+}
+.register .show-password-block input[type=checkbox]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 4px;
+  width: 4px;
+  height: 8px;
+  border: solid #002C2F;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0; /* Hide by default */
+  transition: opacity 0.2s;
+}
+.register .show-password-block input[type=checkbox]:checked::before {
+  opacity: 1;
+}
+.register .show-password-block .showPasswordLabel {
+  font-weight: 700;
+  font-size: 16px;
+}
+.register .login-link {
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+  margin-top: 80px;
+  text-decoration: underline;
+  color: #002C2F;
+}
+
+.login-container {
+  background-color: #fff;
+  width: 100%;
+  height: inherit;
+  border-radius: 0 0 0 80px;
+}
+.login-container h1 {
+  color: #002C2F;
+  margin-bottom: 4px;
+}
+.login-container p {
+  color: #2d5d61;
+  margin-bottom: 18px;
+}
+.login-container .instructions {
+  display: block;
+  background-color: hsl(0, 86%, 67%);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+  padding: 12px;
+  border-radius: 8px;
+  position: relative;
+  transition: 0.1ms ease-in-out display;
+}
+.login-container .instructions .info_icon {
+  width: 16px;
+  position: absolute;
+  top: 10px;
+}
+.login-container .login-btn {
+  background-color: hsl(71, 86%, 67%);
+  color: #002C2F;
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  border-radius: 40px;
+  padding: 21px;
+  width: 100%;
+}
+.login-container button {
+  opacity: 1;
+}
+.login-container button:disabled {
+  opacity: 0.6;
+}
+.login-container .show-password-block {
+  display: flex;
+  align-items: center;
+  margin-top: -20px;
+  margin-left: 65%;
+  /* Show checkmark when checked */
+}
+.login-container .show-password-block input[type=checkbox] {
+  border: 1.5px solid #002C2F;
+  width: 15px;
+  height: 15px;
+  margin-right: 8px;
+  margin-left: 18px;
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+}
+.login-container .show-password-block input[type=checkbox]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 4px;
+  width: 4px;
+  height: 8px;
+  border: solid #002C2F;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0; /* Hide by default */
+  transition: opacity 0.2s;
+}
+.login-container .show-password-block input[type=checkbox]:checked::before {
+  opacity: 1;
+}
+.login-container .show-password-block .showPasswordLabel {
+  font-weight: 700;
+  font-size: 16px;
+}
+.login-container .login-link {
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+  margin-top: 80px;
+  text-decoration: underline;
+  color: #002C2F;
+}
+
+.taskList-container {
+  height: 100%;
+}
+
+.home-container {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-row: 1;
+  height: 100lvh;
+}
+
+.home-heading {
+  background-image: url("../../public/ASSETS/login-background.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+  padding-inline: 50px;
+  color: #002C2F;
+}
+
+.home-inputs {
+  background-color: #fff;
+  padding: 50px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+}
+
+.promodo-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.promodo-page .promodo-circle {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(71, 86%, 67%);
+}
+
+.tasks-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.tasks-lists {
+  padding: 30px;
+}
+.tasks-lists .tasks {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  width: 100%;
+}
+
+/*# sourceMappingURL=main.css.map */
