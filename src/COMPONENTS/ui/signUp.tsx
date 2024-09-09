@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 // =======================ICONS======================
-import { InfoIcon } from "./icons";
+import { InfoIcon, LockIcon, LockSlashIcon } from "./icons";
 
 // =======================SERVICE======================
-import { handleSignUp } from "../../SERVICES/signUpServ";
+import useSignUp from "../../HOOKS/useSignUp";
 
 // =======================Regex======================
 const userRegex = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
@@ -39,6 +40,19 @@ const SignUp = () => {
 
     const [showPassword, setShowPassword] = useState(false);
 
+    const validationMessageVariants = {
+        hidden: {
+            opacity: 0,
+            y: -10,
+            display: "none"
+        },
+        visible: {
+            opacity: 1,
+            y: 0,
+            display: "block"
+        },
+    };
+
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
@@ -52,7 +66,6 @@ const SignUp = () => {
     useEffect(() => {
         const result = userRegex.test(user);
         setVaildUser(result);
-        console.log(result);
     }, [user])
 
     useEffect(() => {
@@ -62,18 +75,20 @@ const SignUp = () => {
 
     useEffect(() => {
         const result = pwdRegex.test(pwd);
-        console.log(result);
         setVaildPwd(result);
         const match = pwd === matchPwd;
         setVaildMatchPwd(match);
     }, [pwd, matchPwd])
 
-    const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    const mutation = useSignUp({ email: email, fullname: user, password: pwd })
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        mutation.mutate();
+
         if (!userRegex.test(user) || !emailRegex.test(email) || !pwdRegex.test(pwd)) {
-            return;
         }
-        const response = await handleSignUp({ fullname: user, email: email, password: pwd });
+
 
 
     }
@@ -82,82 +97,101 @@ const SignUp = () => {
             <h1>Create new account</h1>
             <p>Join us for an enhanced productivity experience.</p>
             <div className='register-inputs'>
-                <input
-                    value={user}
-                    ref={userRef}
-                    onChange={e => setUser(e.target.value)}
-                    onFocus={() => { setFocusUser(true) }}
-                    onBlur={() => { setFocusUser(false) }}
-                    required
-                    aria-invalid={userVaild ? "false" : "true"}
-                    aria-describedby='userNote'
-                    className='input-field'
-                    type='text'
-                    placeholder='Enter your name'
-                // ||
-                />
-                <p id='userNote' className={userFocus && user && !userVaild ? "instructions" : "offscreen"}>
-                    <InfoIcon />
-                    4-24 characters, must start with a letter. Allowed: letters, numbers, underscores, hyphens.
-                </p>
-                <input
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                    onFocus={() => { setFocusEmail(true) }}
-                    onBlur={() => { setFocusEmail(false) }}
-                    required
-                    aria-invalid={emailVaild ? "false" : "true"}
-                    aria-describedby='emailNote'
-                    className='input-field'
-                    type='email'
-                    placeholder='Enter your email'
-                />
-                <p id='emilNote' className={emailFocus && email && !emailVaild ? "instructions" : "offscreen"}>
-                    <InfoIcon />
-                    This is not a valid email
-                </p>
-                <input
-                    value={pwd}
-                    ref={pwdRef}
-                    onChange={e => setPwd(e.target.value)}
-                    onFocus={() => { setFocusPwd(true) }}
-                    onBlur={() => { setFocusPwd(false) }}
-                    required
-                    aria-invalid={pwdVaild ? "false" : "true"}
-                    aria-describedby='pwdNote'
-                    className='input-field'
-                    type={showPassword ? 'text' : 'password'}
-                    placeholder='Enter your password'
-                />
+                <form onSubmit={(e) => handleSubmit(e)}>
+                    <div className='input-block'>
+                        <input
+                            value={user}
+                            ref={userRef}
+                            onChange={e => setUser(e.target.value)}
+                            onFocus={() => { setFocusUser(true) }}
+                            onBlur={() => { setFocusUser(false) }}
+                            required
+                            aria-invalid={userVaild ? "false" : "true"}
+                            aria-describedby='userNote'
+                            className='input-field'
+                            type='text'
+                            placeholder='Enter your name'
+                        />
+                        <p id='userNote' className={userFocus && user && !userVaild ? "instructions" : "offscreen"}>
+                            <InfoIcon />
+                            4-24 characters, must start with a letter. Allowed: letters, numbers, underscores, hyphens.
+                        </p>
+                    </div>
 
-                <div className='show-password-block'>
-                    <input type="checkbox" className="show-password" checked={showPassword} onChange={togglePasswordVisibility} />
-                    <span className="showPasswordLabel">Show Password</span>
-                </div>
+                    <div className='input-block'>
+                        <input
+                            value={email}
+                            onChange={e => setEmail(e.target.value)}
+                            onFocus={() => { setFocusEmail(true) }}
+                            onBlur={() => { setFocusEmail(false) }}
+                            required
+                            aria-invalid={emailVaild ? "false" : "true"}
+                            aria-describedby='emailNote'
+                            className='input-field'
+                            type='email'
+                            placeholder='Enter your email'
+                        />
+                        <p id='emilNote' className={emailFocus && email && !emailVaild ? "instructions" : "offscreen"}>
+                            <InfoIcon />
+                            This is not a valid email
+                        </p>
+                    </div>
+                    <div className='input-block'>
+                        <div className='input-password'>
+                            <input
+                                value={pwd}
+                                ref={pwdRef}
+                                onChange={e => setPwd(e.target.value)}
+                                onFocus={() => { setFocusPwd(true) }}
+                                onBlur={() => { setFocusPwd(false) }}
+                                required
+                                aria-invalid={pwdVaild ? "false" : "true"}
+                                aria-describedby='pwdNote'
+                                className='input-field'
+                                type={showPassword ? 'text' : 'password'}
+                                placeholder='Enter your password'
+                            />
 
-                <p id='pwdNote' className={pwdFocus && pwd && !pwdVaild ? "instructions" : "offscreen"}>
-                    <InfoIcon />
-                    Password must be 8-28 characters, with at least one lowercase, one uppercase, one digit, and one special character.
-                </p>
-                <input
-                    value={matchPwd}
-                    onChange={e => setMatchPwd(e.target.value)}
-                    onFocus={() => { setFocusmatchPwd(true) }}
-                    onBlur={() => { setFocusmatchPwd(false) }}
-                    required
-                    aria-invalid={matchPwdVaild ? "false" : "true"}
-                    aria-describedby='matchPwdNote'
-                    className='input-field'
-                    type='password'
-                    placeholder='Confirm your password'
-                />
-                <p id='matchPwdNote' className={matchPwdFocus && matchPwd && !matchPwdVaild ? "instructions" : "offscreen"}>
-                    <InfoIcon />
-                    The password does not match
-                </p>
-                <button onClick={handleSubmit} disabled={!userVaild || !emailVaild || !pwdVaild || !matchPwdVaild ? true : false} className='register-btn'>Create an account</button>
+                            <div className='show-password-icon' onClick={togglePasswordVisibility}>
+                                {showPassword && <LockSlashIcon />}
+                                {!showPassword && <LockIcon />}
+
+                            </div>
+                        </div>
+                        <motion.p
+                            id='pwdNote'
+                            className="instructions"
+                            initial="hidden"
+                            animate={pwdFocus && pwd && !pwdVaild ? "visible" : "hidden"}
+                            variants={validationMessageVariants}
+                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                        >
+                            <InfoIcon />
+                            Password must be 8-28 characters, with at least one lowercase, one uppercase, one digit, and one special character.
+                        </motion.p>
+                    </div>
+                    <div className='input-block'>
+                        <input
+                            value={matchPwd}
+                            onChange={e => setMatchPwd(e.target.value)}
+                            onFocus={() => { setFocusmatchPwd(true) }}
+                            onBlur={() => { setFocusmatchPwd(false) }}
+                            required
+                            aria-invalid={matchPwdVaild ? "false" : "true"}
+                            aria-describedby='matchPwdNote'
+                            className='input-field'
+                            type='password'
+                            placeholder='Confirm your password'
+                        />
+                        <p id='matchPwdNote' className={matchPwdFocus && matchPwd && !matchPwdVaild ? "instructions" : "offscreen"}>
+                            <InfoIcon />
+                            The password does not match
+                        </p>
+                    </div>
+                    <button type='submit' disabled={!userVaild || !emailVaild || !pwdVaild || !matchPwdVaild ? true : false} className='register-btn'>Create an account</button>
+                </form>
             </div>
-            <Link to={""} className='login-link'>Already have an Account</Link>
+            <Link to="../" className='login-link'>Already have an Account</Link>
         </div>
     );
 }

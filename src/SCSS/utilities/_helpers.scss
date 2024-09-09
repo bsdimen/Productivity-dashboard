@@ -9,18 +9,20 @@
     padding: 10px;
     margin-block: 8px 30px;
     // border-radius: 8px;
-    font-family: 'Nunito',sans-serif;
+    font-family: 'Nunito', sans-serif;
     font-size: 18px;
-    color:$dark-blue;
+    color: $dark-blue;
     background-color: transparent;
-    border-bottom: 2px solid rgba(145, 145, 145, 0.164);
+    border-bottom: 1px solid rgba(145, 145, 145, 0.164);
     // box-shadow: 0 0 20px hsla(183, 100%, 9%, 0.116);
-}   
+}
+
 .input-field::placeholder {
     font-weight: 400;
     color: rgb(145, 145, 145);
     // font-size: 12px;
 }
+
 .input-field:focus {
     outline: none;
     border-bottom: 2px solid $primary-color;

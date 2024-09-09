@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import { InfoIcon } from "./icons";
 import { NavLink, useNavigate } from 'react-router-dom';
-import { useLogin } from '../../SERVICES/loginServ';
+import login from '../../HOOKS/useLogin';
+import useLogIn from '../../HOOKS/useLogin';
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,6}$/;
 
@@ -13,17 +14,14 @@ const Login = () => {
 
     const navigate = useNavigate();
 
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-    const [email, setEmail] = useState<string>();
-    const [pwd, setPwd] = useState<string>();
-
-    const [emailFocus, setEmailFocus] = useState<boolean>(false);
-    const [pwdFocus, setPwdFocus] = useState<boolean>(false);
-
-    const [emailValid, setEmailVaild] = useState<boolean>(false);
     const [errorMsg, setErrorMsg] = useState<boolean>(false);
 
     const [showPassword, setShowPassword] = useState<boolean>(false);
+
+    const mutate = useLogIn({ email, password });
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -31,9 +29,7 @@ const Login = () => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (email && pwd) {
-            useLogin(email, pwd)
-        }
+        mutate.mutate();
     }
 
     useEffect(() => {
@@ -50,8 +46,7 @@ const Login = () => {
             <form onSubmit={handleSubmit} className='register-inputs'>
                 <input
                     value={email}
-                    ref={emailRef}
-                    onChange={e => setEmail(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
                     required
                     className='input-field'
                     type='email'
@@ -59,8 +54,8 @@ const Login = () => {
                 />
 
                 <input
-                    value={pwd}
-                    onChange={e => setPwd(e.target.value)}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     required
                     className='input-field'
                     type={showPassword ? 'text' : 'password'}

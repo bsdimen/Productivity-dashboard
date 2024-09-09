@@ -38,7 +38,7 @@ h1 {
   font-size: 18px;
   color: #002C2F;
   background-color: transparent;
-  border-bottom: 2px solid rgba(145, 145, 145, 0.164);
+  border-bottom: 1px solid rgba(145, 145, 145, 0.164);
 }
 
 .input-field::placeholder {
@@ -166,6 +166,7 @@ button {
   width: 100%;
   height: inherit;
   border-radius: 0 0 0 80px;
+  position: relative;
 }
 .register h1 {
   color: #002C2F;
@@ -208,54 +209,31 @@ button {
 }
 .register button {
   opacity: 1;
+  margin-bottom: 60px;
 }
 .register button:disabled {
   opacity: 0.6;
 }
-.register .show-password-block {
-  display: flex;
-  align-items: center;
-  margin-top: -20px;
-  margin-left: 65%;
-  /* Show checkmark when checked */
-}
-.register .show-password-block input[type=checkbox] {
-  border: 1.5px solid #002C2F;
-  width: 15px;
-  height: 15px;
-  margin-right: 8px;
-  margin-left: 18px;
-  appearance: none;
-  -webkit-appearance: none;
+.register .input-password {
   position: relative;
 }
-.register .show-password-block input[type=checkbox]::before {
-  content: "";
+.register .input-password .show-password-icon {
   position: absolute;
-  top: 0;
-  left: 4px;
-  width: 4px;
-  height: 8px;
-  border: solid #002C2F;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-  opacity: 0; /* Hide by default */
-  transition: opacity 0.2s;
-}
-.register .show-password-block input[type=checkbox]:checked::before {
-  opacity: 1;
-}
-.register .show-password-block .showPasswordLabel {
-  font-weight: 700;
-  font-size: 16px;
+  right: 10px;
+  top: 10px;
 }
 .register .login-link {
-  width: 100%;
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
   font-weight: 500;
-  margin-top: 80px;
-  text-decoration: underline;
   color: #002C2F;
+}
+.register .login-link:hover {
+  text-decoration: underline;
+  font-weight: 700;
 }
 
 .login-container {
@@ -332,7 +310,8 @@ button {
   border: solid #002C2F;
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
-  opacity: 0; /* Hide by default */
+  opacity: 0;
+  /* Hide by default */
   transition: opacity 0.2s;
 }
 .login-container .show-password-block input[type=checkbox]:checked::before {

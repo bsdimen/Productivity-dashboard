@@ -1,8 +1,8 @@
 import React from 'react';
 import SideNavBar from "../COMPONENTS/ui/sideNavBar"
 import TaskList from "../COMPONENTS/ui/taskList"
-import {getLoggedUser} from "../SERVICES/getLoggedUserServ"
-import {showTasksList} from "../SERVICES/taskServ"
+import {getLoggedUser} from "../HOOKS/getLoggedUserServ"
+import {showTasksList} from "../HOOKS/taskServ"
 
 
 

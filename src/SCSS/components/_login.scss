@@ -2,16 +2,19 @@
     background-color: #fff;
     width: 100%;
     height: inherit;
-    border-radius:0 0 0 80px;
+    border-radius: 0 0 0 80px;
+
     h1 {
         color: $dark-blue;
         margin-bottom: 4px;
     }
+
     p {
         color: $light-blue;
         margin-bottom: 18px;
     }
-   .instructions {
+
+    .instructions {
         display: block;
         background-color: hsl(0, 86%, 67%);
         color: #fff;
@@ -22,33 +25,39 @@
         border-radius: 8px;
         position: relative;
         transition: 0.1ms ease-in-out display;
+
         .info_icon {
             width: 16px;
             position: absolute;
             top: 10px;
         }
     }
+
     .login-btn {
         background-color: $accent-color;
         color: $dark-blue;
-        font-family: 'Nunito',sans-serif;
+        font-family: 'Nunito', sans-serif;
         font-size: 20px;
         font-weight: 800;
         border-radius: 40px;
         padding: 21px;
         width: 100%;
     }
+
     button {
         opacity: 1;
     }
+
     button:disabled {
         opacity: 0.6;
     }
+
     .show-password-block {
         display: flex;
         align-items: center;
         margin-top: -20px;
         margin-left: 65%;
+
         input[type="checkbox"] {
             border: 1.5px solid $dark-blue;
             width: 15px;
@@ -59,7 +68,7 @@
             -webkit-appearance: none;
             position: relative;
         }
-        
+
         input[type="checkbox"]::before {
             content: "";
             position: absolute;
@@ -67,23 +76,26 @@
             left: 4px;
             width: 4px;
             height: 8px;
-            border: solid $dark-blue; 
+            border: solid $dark-blue;
             border-width: 0 2px 2px 0;
             transform: rotate(45deg);
-            opacity: 0; /* Hide by default */
+            opacity: 0;
+            /* Hide by default */
             transition: opacity 0.2s;
         }
-        
+
         /* Show checkmark when checked */
         input[type="checkbox"]:checked::before {
             opacity: 1;
         }
-        .showPasswordLabel { 
+
+        .showPasswordLabel {
             font-weight: 700;
             font-size: 16px;
         }
-          
+
     }
+
     .login-link {
         width: 100%;
         text-align: center;
