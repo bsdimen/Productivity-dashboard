@@ -1,14 +1,14 @@
 import React, { ReactNode } from 'react';
-import { Navigate, RouteProps  } from 'react-router-dom';
+import { Navigate, RouteProps } from 'react-router-dom';
 
 
-interface ProtectedRouteProps  {
+interface ProtectedRouteProps {
   element: ReactNode;
 }
 
-const isAuthenticated = () => !!localStorage.getItem('authToken');
+const isAuthenticated = () => !!localStorage.getItem('login');
 
-const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ element, ...rest }) => {
+const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ element }) => {
   return isAuthenticated() ? <>{element}</> : <Navigate to="/login" />;
 };
 

@@ -11,6 +11,7 @@ import ProtectedRoute from './COMPONENTS/Modules/ProtectedRoute';
 import Dashboard from './PAGES/dashboard';
 import Promodo from './PAGES/promodo';
 import Tasks from './PAGES/tasks';
+import Logout from './COMPONENTS/ui/logout';
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const router = createBrowserRouter(
       <Route path="/dashboard" element={<ProtectedRoute element={<Dashboard />} />} />
       <Route path="/promodo" element={<ProtectedRoute element={<Promodo />} />} />
       <Route path="/tasks" element={<ProtectedRoute element={<Tasks />} />} />
+      <Route path='/logout' element={< ProtectedRoute element={<Logout />} />} />
 
 
     </>

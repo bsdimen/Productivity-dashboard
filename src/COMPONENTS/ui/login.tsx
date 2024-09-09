@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import { InfoIcon } from "./icons";
 import { NavLink, useNavigate } from 'react-router-dom';
-import login from '../../HOOKS/useLogin';
-import useLogIn from '../../HOOKS/useLogin';
+import login from '../../AUTH/useLogin';
+import useLogIn from '../../AUTH/useLogin';
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,6}$/;
 

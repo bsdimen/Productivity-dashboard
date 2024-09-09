@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { InfoIcon, LockIcon, LockSlashIcon } from "./icons";
 
 // =======================SERVICE======================
-import useSignUp from "../../HOOKS/useSignUp";
+import useSignUp from "../../AUTH/useSignUp";
 
 // =======================Regex======================
 const userRegex = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
