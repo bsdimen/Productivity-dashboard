@@ -2,6 +2,7 @@ import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase"
+import { useState } from 'react';
 
 
 interface user {
@@ -14,7 +15,7 @@ const useLogIn = (obj: user) => {
   const signIn = async ({ email, password }: user) => {
     try {
 
-      const userCredential = await signInWithEmailAndPassword(auth, obj.email, obj.password);
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
       const userData = {
@@ -30,17 +31,19 @@ const useLogIn = (obj: user) => {
     }
   }
   const navigate = useNavigate();
-  const mutate = useMutation({
+
+  const { mutate, isError, isSuccess } = useMutation({
     mutationFn: () => signIn(obj),
     onSuccess: () => {
       navigate("/dashboard");
       console.log("USER ADDED");
     },
     onError: (error) => {
+      console.log(mutate)
       console.error("Error adding user:", error);
     },
   });
-  return mutate
+  return { mutate, isError, isSuccess };
 
 };
 

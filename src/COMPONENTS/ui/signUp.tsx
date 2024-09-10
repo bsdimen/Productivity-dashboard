@@ -160,7 +160,7 @@ const SignUp = () => {
                         </div>
                         <motion.p
                             id='pwdNote'
-                            className="instructions"
+                            className={pwdFocus && pwd && !pwdVaild ? "instructions" : "offscreen"}
                             initial="hidden"
                             animate={pwdFocus && pwd && !pwdVaild ? "visible" : "hidden"}
                             variants={validationMessageVariants}

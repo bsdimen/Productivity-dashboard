@@ -181,7 +181,10 @@ button {
   transition: 0.1ms ease-in-out display;
 }
 .register .instructions {
-  display: block;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
   background-color: hsl(0, 86%, 67%);
   color: #fff;
   font-size: 13px;
@@ -241,6 +244,8 @@ button {
   width: 100%;
   height: inherit;
   border-radius: 0 0 0 80px;
+  position: relative;
+  height: 80%;
 }
 .login-container h1 {
   color: #002C2F;
@@ -251,7 +256,10 @@ button {
   margin-bottom: 18px;
 }
 .login-container .instructions {
-  display: block;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
   background-color: hsl(0, 86%, 67%);
   color: #fff;
   font-size: 13px;
@@ -261,11 +269,13 @@ button {
   border-radius: 8px;
   position: relative;
   transition: 0.1ms ease-in-out display;
+  visibility: visible;
 }
-.login-container .instructions .info_icon {
+.login-container .instructions svg {
   width: 16px;
-  position: absolute;
-  top: 10px;
+}
+.login-container .offscreen {
+  visibility: hidden;
 }
 .login-container .login-btn {
   background-color: hsl(71, 86%, 67%);
@@ -283,55 +293,34 @@ button {
 .login-container button:disabled {
   opacity: 0.6;
 }
-.login-container .show-password-block {
-  display: flex;
-  align-items: center;
-  margin-top: -20px;
-  margin-left: 65%;
-  /* Show checkmark when checked */
-}
-.login-container .show-password-block input[type=checkbox] {
-  border: 1.5px solid #002C2F;
-  width: 15px;
-  height: 15px;
-  margin-right: 8px;
-  margin-left: 18px;
-  appearance: none;
-  -webkit-appearance: none;
+.login-container .input-password {
   position: relative;
 }
-.login-container .show-password-block input[type=checkbox]::before {
-  content: "";
+.login-container .input-password .show-password-icon {
   position: absolute;
-  top: 0;
-  left: 4px;
-  width: 4px;
-  height: 8px;
-  border: solid #002C2F;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-  opacity: 0;
-  /* Hide by default */
-  transition: opacity 0.2s;
-}
-.login-container .show-password-block input[type=checkbox]:checked::before {
-  opacity: 1;
-}
-.login-container .show-password-block .showPasswordLabel {
-  font-weight: 700;
-  font-size: 16px;
+  right: 10px;
+  top: 10px;
 }
 .login-container .login-link {
-  width: 100%;
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
   font-weight: 500;
-  margin-top: 80px;
-  text-decoration: underline;
   color: #002C2F;
+}
+.login-container .login-link:hover {
+  text-decoration: underline;
+  font-weight: 700;
 }
 
 .taskList-container {
   height: 100%;
+  min-width: 300px;
+  padding: 20px 25px;
+  background-color: rgba(233, 240, 240, 0.7176470588);
+  border-radius: 20px;
 }
 
 .home-container {
@@ -381,20 +370,31 @@ button {
   background-color: hsl(71, 86%, 67%);
 }
 
-.tasks-container {
+.framework-container {
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: row;
+  overflow: hidden;
 }
-
-.tasks-lists {
-  padding: 30px;
-}
-.tasks-lists .tasks {
+.framework-container .framework {
   width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.framework-container .framework-wrapper {
+  overflow-x: scroll;
+  height: 80%;
+}
+.framework-container .task-lists {
+  width: 100%;
+  padding: 30px;
   display: flex;
   flex-direction: row;
   gap: 24px;
-  width: 100%;
+  overflow-x: scroll;
+  height: 80%;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,33 @@
+.framework-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+
+    .framework {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+    }
+
+    .framework-wrapper {
+        overflow-x: scroll;
+        height: 80%;
+    }
+
+
+
+    .task-lists {
+        width: 100%;
+        padding: 30px;
+        display: flex;
+        flex-direction: row;
+        gap: 24px;
+        overflow-x: scroll;
+        height: 80%;
+
+    }
+}

@@ -1,10 +1,21 @@
-import React from 'react';
+import { Task } from "./Prefabs/prefabs";
 
-const TaskList = () => {
+interface taskListParams {
+    title: string;
+    desc: string;
+}
+const TaskList = (list: taskListParams) => {
     return (
         <div className='taskList-container'>
-            <h4>Title of the list</h4>
-            
+            <div className='taskList-heading'>
+                <h3>{list.title}</h3>
+                <p>{list.desc}</p>
+            </div>
+            <div className="tasks">
+                <Task />
+            </div>
+            <h4></h4>
+
         </div>
     );
 }

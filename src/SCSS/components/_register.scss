@@ -21,7 +21,10 @@
     }
 
     .instructions {
-        display: block;
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        align-items: center;
         background-color: hsl(0, 86%, 67%);
         color: #fff;
         font-size: 13px;
@@ -61,9 +64,6 @@
     }
 
     .input-password {
-        // display: flex;
-        // flex-direction: row;
-        // align-items: center;
         position: relative;
 
         .show-password-icon {

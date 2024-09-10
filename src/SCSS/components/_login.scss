@@ -3,6 +3,8 @@
     width: 100%;
     height: inherit;
     border-radius: 0 0 0 80px;
+    position: relative;
+    height: 80%;
 
     h1 {
         color: $dark-blue;
@@ -15,7 +17,10 @@
     }
 
     .instructions {
-        display: block;
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        align-items: center;
         background-color: hsl(0, 86%, 67%);
         color: #fff;
         font-size: 13px;
@@ -25,12 +30,15 @@
         border-radius: 8px;
         position: relative;
         transition: 0.1ms ease-in-out display;
+        visibility: visible;
 
-        .info_icon {
+        svg {
             width: 16px;
-            position: absolute;
-            top: 10px;
         }
+    }
+
+    .offscreen {
+        visibility: hidden;
     }
 
     .login-btn {
@@ -52,57 +60,31 @@
         opacity: 0.6;
     }
 
-    .show-password-block {
-        display: flex;
-        align-items: center;
-        margin-top: -20px;
-        margin-left: 65%;
+    .input-password {
+        // display: flex;
+        // flex-direction: row;
+        // align-items: center;
+        position: relative;
 
-        input[type="checkbox"] {
-            border: 1.5px solid $dark-blue;
-            width: 15px;
-            height: 15px;
-            margin-right: 8px;
-            margin-left: 18px;
-            appearance: none;
-            -webkit-appearance: none;
-            position: relative;
-        }
-
-        input[type="checkbox"]::before {
-            content: "";
+        .show-password-icon {
             position: absolute;
-            top: 0;
-            left: 4px;
-            width: 4px;
-            height: 8px;
-            border: solid $dark-blue;
-            border-width: 0 2px 2px 0;
-            transform: rotate(45deg);
-            opacity: 0;
-            /* Hide by default */
-            transition: opacity 0.2s;
+            right: 10px;
+            top: 10px;
         }
-
-        /* Show checkmark when checked */
-        input[type="checkbox"]:checked::before {
-            opacity: 1;
-        }
-
-        .showPasswordLabel {
-            font-weight: 700;
-            font-size: 16px;
-        }
-
     }
 
     .login-link {
-        width: 100%;
+        position: absolute;
+        bottom: 0%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         text-align: center;
         font-weight: 500;
-        margin-top: 80px;
-        text-decoration: underline;
         color: $dark-blue;
 
+        &:hover {
+            text-decoration: underline;
+            font-weight: 700;
+        }
     }
 }
