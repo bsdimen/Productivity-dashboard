@@ -81,6 +81,43 @@ button {
   background-color: transparent;
 }
 
+.addTaskBtn {
+  background-color: #fff;
+  position: absolute;
+  bottom: 20px;
+  padding-block: 10px;
+  padding-inline: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  width: 90%;
+}
+.addTaskBtn input {
+  height: 100%;
+  padding-block: 10px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  width: 100%;
+}
+.addTaskBtn input:focus {
+  outline: none;
+}
+.addTaskBtn input::placeholder {
+  font-family: "Nunito", sans-serif;
+  font-weight: 500;
+}
+.addTaskBtn button {
+  appearance: none;
+  background-color: transparent;
+}
+.addTaskBtn button svg {
+  margin-right: 4px;
+}
+.addTaskBtn button svg path {
+  color: #d9f362;
+}
+
 .navbar {
   height: 100%;
   min-height: 100vh;
@@ -201,7 +238,7 @@ button {
   top: 10px;
 }
 .register .register-btn {
-  background-color: hsl(71, 86%, 67%);
+  background-color: #d9f362;
   color: #002C2F;
   font-family: "Nunito", sans-serif;
   font-size: 20px;
@@ -278,7 +315,7 @@ button {
   visibility: hidden;
 }
 .login-container .login-btn {
-  background-color: hsl(71, 86%, 67%);
+  background-color: #d9f362;
   color: #002C2F;
   font-family: "Nunito", sans-serif;
   font-size: 20px;
@@ -315,12 +352,23 @@ button {
   font-weight: 700;
 }
 
+.task-container {
+  padding-block: 15px;
+  padding-inline: 10px;
+  margin-block: 10px;
+  background-color: #fff;
+  border-radius: 10%;
+}
+
 .taskList-container {
-  height: 100%;
-  min-width: 300px;
-  padding: 20px 25px;
+  height: 70vh;
+  min-width: 250px;
+  padding-inline: 10px;
+  padding-block: 15px;
+  margin-bottom: 20px;
   background-color: rgba(233, 240, 240, 0.7176470588);
   border-radius: 20px;
+  position: relative;
 }
 
 .home-container {
@@ -367,34 +415,62 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: hsl(71, 86%, 67%);
+  background-color: #d9f362;
 }
 
 .framework-container {
   width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: row;
-  overflow: hidden;
+  overflow-x: hidden;
+  color: #000e0f;
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
 }
 .framework-container .framework {
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  height: 100vh;
   display: flex;
   align-items: center;
+  padding-block: 30px;
+  padding-inline: 30px;
+  overflow-x: hidden;
 }
 .framework-container .framework-wrapper {
-  overflow-x: scroll;
-  height: 80%;
+  overflow-x: hidden;
+}
+.framework-container .framework-wrapper .framework-heading {
+  margin-block: 10px;
+}
+.framework-container .framework-wrapper .framework-heading h2 {
+  font-weight: 800;
+  color: #000e0f;
 }
 .framework-container .task-lists {
-  width: 100%;
-  padding: 30px;
+  max-width: 100%;
+  margin-block: 15px;
   display: flex;
   flex-direction: row;
   gap: 24px;
   overflow-x: scroll;
-  height: 80%;
+}
+.framework-container ::-webkit-scrollbar {
+  width: 12px;
+  height: 8px;
+}
+.framework-container ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.framework-container ::-webkit-scrollbar-thumb {
+  background: #01565B;
+  border-radius: 20px;
+}
+.framework-container ::-webkit-scrollbar-thumb:hover {
+  background: #002C2F;
+}
+.framework-container ::-webkit-scrollbar-button {
+  display: none;
 }
 
 /*# sourceMappingURL=main.css.map */

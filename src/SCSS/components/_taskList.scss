@@ -1,7 +1,21 @@
+// ===================== START TASK PERFAB====================
+.task-container {
+    padding-block: 15px;
+    padding-inline: 10px;
+    margin-block: 10px;
+    background-color: #fff;
+    border-radius: 10%;
+}
+
+// ===================== END TASK PERFAB====================
+
 .taskList-container {
-    height: 100%;
-    min-width: 300px;
-    padding: 20px 25px;
+    height: 70vh;
+    min-width: 250px;
+    padding-inline: 10px;
+    padding-block: 15px;
+    margin-bottom: 20px;
     background-color: $light-color-700;
     border-radius: 20px;
+    position: relative;
 }

@@ -1,33 +1,70 @@
 .framework-container {
     width: 100%;
-    height: 100vh;
     display: flex;
     flex-direction: row;
-    overflow: hidden;
+    overflow-x: hidden;
+    color: $darker-blue;
 
     .framework {
-        width: 100%;
-        height: 100%;
+        max-width: 100%;
+        height: 100vh;
         display: flex;
         align-items: center;
+        padding-block: 30px;
+        padding-inline: 30px;
+        overflow-x: hidden;
 
     }
 
     .framework-wrapper {
-        overflow-x: scroll;
-        height: 80%;
+        overflow-x: hidden;
+
+        .framework-heading {
+            margin-block: 10px;
+
+
+            h2 {
+                font-weight: $bold;
+                color: $darker-blue;
+            }
+        }
     }
 
 
 
     .task-lists {
-        width: 100%;
-        padding: 30px;
+        max-width: 100%;
+        margin-block: 15px;
         display: flex;
         flex-direction: row;
         gap: 24px;
         overflow-x: scroll;
-        height: 80%;
 
+    }
+
+
+    ::-webkit-scrollbar {
+        width: 12px;
+        height: 8px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: $primary-color;
+        border-radius: 20px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: $dark-blue;
+    }
+
+    ::-webkit-scrollbar-button {
+        display: none;
     }
 }

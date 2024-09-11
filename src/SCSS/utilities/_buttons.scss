@@ -1,5 +1,5 @@
 button {
-    font-family: 'Nunito',sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 .primary-btn {
@@ -20,9 +20,55 @@ button {
     font-weight: 200;
     background-color: transparent;
 }
+
 .promodo-btn {
     font-size: 60px;
     font-weight: 700;
     color: $dark-blue;
     background-color: transparent;
+}
+
+.addTaskBtn {
+    background-color: #fff;
+    position: absolute;
+    bottom: 20px;
+    padding-block: 10px;
+    padding-inline: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    width: 90%;
+
+    input {
+        height: 100%;
+        padding-block: 10px;
+        font-family: 'Nunito', sans-serif;
+        font-weight: $meduim;
+        font-size: 12px;
+        width: 100%;
+
+        &:focus {
+            outline: none;
+        }
+
+        &::placeholder {
+            font-family: 'Nunito', sans-serif;
+            font-weight: $meduim;
+        }
+
+    }
+
+    button {
+        appearance: none;
+        background-color: transparent;
+
+        svg {
+            margin-right: 4px;
+
+            path {
+                color: $accent-color;
+            }
+        }
+    }
+
 }
