@@ -83,14 +83,12 @@ button {
 
 .addTaskBtn {
   background-color: #fff;
-  position: absolute;
-  bottom: 20px;
   padding-block: 10px;
   padding-inline: 10px;
   border-radius: 10px;
   display: flex;
   align-items: center;
-  width: 90%;
+  width: 100%;
 }
 .addTaskBtn input {
   height: 100%;
@@ -356,8 +354,34 @@ button {
   padding-block: 15px;
   padding-inline: 10px;
   margin-block: 10px;
-  background-color: #fff;
-  border-radius: 10%;
+  background-color: rgba(233, 240, 240, 0.2039215686);
+  border-radius: 10px;
+}
+.task-container .task-details {
+  margin-top: 15px;
+}
+
+.time-block {
+  padding: 4px;
+  width: fit-content;
+  border-radius: 5px;
+  display: inline-block;
+  margin-right: 3px;
+  margin-bottom: 3px;
+}
+.time-block span {
+  font-size: 10px;
+  font-weight: 700;
+  color: #002C2F;
+}
+.time-block.done {
+  background-color: rgba(175, 255, 146, 0.368627451);
+}
+.time-block.required {
+  background-color: rgba(255, 251, 146, 0.368627451);
+}
+.time-block.rest {
+  background-color: rgba(255, 155, 146, 0.368627451);
 }
 
 .taskList-container {
@@ -366,9 +390,10 @@ button {
   padding-inline: 10px;
   padding-block: 15px;
   margin-bottom: 20px;
-  background-color: rgba(233, 240, 240, 0.7176470588);
-  border-radius: 20px;
+  background-color: #fff;
+  border-radius: 10px;
   position: relative;
+  overflow-y: scroll;
 }
 
 .home-container {
@@ -424,9 +449,7 @@ button {
   flex-direction: row;
   overflow-x: hidden;
   color: #000e0f;
-  /* Track */
-  /* Handle */
-  /* Handle on hover */
+  background-color: rgba(233, 240, 240, 0.2039215686);
 }
 .framework-container .framework {
   max-width: 100%;
@@ -454,23 +477,18 @@ button {
   flex-direction: row;
   gap: 24px;
   overflow-x: scroll;
+  position: relative;
 }
-.framework-container ::-webkit-scrollbar {
-  width: 12px;
-  height: 8px;
+.framework-container .task-lists .addIcon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
-.framework-container ::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-.framework-container ::-webkit-scrollbar-thumb {
-  background: #01565B;
-  border-radius: 20px;
-}
-.framework-container ::-webkit-scrollbar-thumb:hover {
-  background: #002C2F;
+.framework-container .task-lists .addIcon svg path {
+  color: #d9f362;
 }
 .framework-container ::-webkit-scrollbar-button {
-  display: none;
+  visibility: hidden;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -3,9 +3,10 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
+const REACT_APP_FIREBASE_API_KEY = "AIzaSyA-oKzdT_w7Dh4UlKh5nlbnS1aZoKOYdFQ"
 
 const firebaseConfig = {
-    apiKey: "AIzaSyA-oKzdT_w7Dh4UlKh5nlbnS1aZoKOYdFQ",
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: "woorkie-8bde8.firebaseapp.com",
     projectId: "woorkie-8bde8",
     storageBucket: "woorkie-8bde8.appspot.com",

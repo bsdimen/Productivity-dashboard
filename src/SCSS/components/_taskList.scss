@@ -3,8 +3,39 @@
     padding-block: 15px;
     padding-inline: 10px;
     margin-block: 10px;
-    background-color: #fff;
-    border-radius: 10%;
+    background-color: $light-color-700;
+    border-radius: 10px;
+
+    .task-details {
+        margin-top: 15px;
+    }
+}
+
+.time-block {
+    padding: 4px;
+    width: fit-content;
+    border-radius: 5px;
+    display: inline-block;
+    margin-right: 3px;
+    margin-bottom: 3px;
+
+    span {
+        font-size: 10px;
+        font-weight: $semiBold;
+        color: $dark-blue;
+    }
+
+    &.done {
+        background-color: #afff925e;
+    }
+
+    &.required {
+        background-color: #FFFB925e;
+    }
+
+    &.rest {
+        background-color: #FF9B925e;
+    }
 }
 
 // ===================== END TASK PERFAB====================
@@ -15,7 +46,10 @@
     padding-inline: 10px;
     padding-block: 15px;
     margin-bottom: 20px;
-    background-color: $light-color-700;
-    border-radius: 20px;
+    background-color: #fff;
+    border-radius: 10px;
     position: relative;
+    overflow-y: scroll;
+
+
 }

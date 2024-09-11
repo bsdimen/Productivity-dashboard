@@ -30,14 +30,12 @@ button {
 
 .addTaskBtn {
     background-color: #fff;
-    position: absolute;
-    bottom: 20px;
     padding-block: 10px;
     padding-inline: 10px;
     border-radius: 10px;
     display: flex;
     align-items: center;
-    width: 90%;
+    width: 100%;
 
     input {
         height: 100%;

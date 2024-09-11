@@ -4,6 +4,7 @@
     flex-direction: row;
     overflow-x: hidden;
     color: $darker-blue;
+    background-color: $light-color-700;
 
     .framework {
         max-width: 100%;
@@ -22,7 +23,6 @@
         .framework-heading {
             margin-block: 10px;
 
-
             h2 {
                 font-weight: $bold;
                 color: $darker-blue;
@@ -39,32 +39,25 @@
         flex-direction: row;
         gap: 24px;
         overflow-x: scroll;
+        position: relative;
 
-    }
+        .addIcon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+
+            svg {
+
+                path {
+                    color: $accent-color;
+                }
+            }
+        }
 
 
-    ::-webkit-scrollbar {
-        width: 12px;
-        height: 8px;
-    }
-
-    /* Track */
-    ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-    }
-
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-        background: $primary-color;
-        border-radius: 20px;
-    }
-
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-        background: $dark-blue;
     }
 
     ::-webkit-scrollbar-button {
-        display: none;
+        visibility: hidden;
     }
 }
