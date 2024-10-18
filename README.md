@@ -1,20 +1,62 @@
-# Getting Started with Create React App
+![Project Status](https://img.shields.io/badge/status-suspended-red)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# WOORKIE
 
-## Available Scripts
+![WOORKIE Banner](https://imgur.com/B9T9w1v)
+**WOORKIE** is a productivity application designed to help users manage tasks efficiently. This project is still in active development, with plans to integrate Firebase for enhanced data storage, user authentication, and real-time syncing.
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- [Overview](#overview)
+- [Tech Stack](#tech-stack)
+- [Features](#features)
+- [Installation](#installation)
+- [Firebase Integration](#firebase-integration)
+- [Project Status](#project-status)
+- [Contributing](#contributing)
+- [License](#license)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Overview
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+WOORKIE is a task management tool designed to improve productivity by organizing daily tasks and offering a simple, clean user experience. The application allows users to create, edit, and track tasks with animations that make the interface engaging and responsive.
 
-### `npm test`
+## Tech Stack
+
+- **React** (Frontend)
+- **TypeScript** (Type safety)
+- **SCSS** (Styling)
+- **Axios** (API calls)
+- **Framer Motion** (Animations)
+- **React Query** (Data fetching and caching)
+- **JSON Server** (Mock backend during development)
+- **Firebase** (Upcoming integration)
+
+## Features
+
+- Task creation and management
+- Task filtering (completed, ongoing, etc.)
+- **Pomodoro Technique** for focused work intervals
+  - Users can assign an estimated time required for each task.
+  - When starting a Pomodoro session, users choose a task to focus on.
+  - The session is timed, with progress tracked for that specific task.
+- Smooth animations for task interactions (Framer Motion)
+- User-friendly design with responsive layouts
+- Firebase integration for real-time updates (planned)
+
+## Installation
+
+### Prerequisites
+
+Before running this project locally, ensure you have the following installed:
+
+- [Node.js](https://nodejs.org/en/)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+
+### Steps to Set Up
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/woorkie.git
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
