@@ -80,7 +80,7 @@ const SignUp = () => {
         setVaildMatchPwd(match);
     }, [pwd, matchPwd])
 
-    const mutation = useSignUp({ email: email, fullname: user, password: pwd })
+    const mutation = useSignUp({ email: email, name: user, password: pwd })
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -188,7 +188,7 @@ const SignUp = () => {
                             The password does not match
                         </p>
                     </div>
-                    <button type='submit' disabled={!userVaild || !emailVaild || !pwdVaild || !matchPwdVaild ? true : false} className='register-btn'>Create an account</button>
+                    <button type='submit' className='register-btn'>Create an account</button>
                 </form>
             </div>
             <Link to="../" className='login-link'>Already have an Account</Link>

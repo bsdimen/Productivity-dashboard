@@ -1,50 +1,47 @@
 import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase"
-import { useState } from 'react';
+import { useAuth } from '../HOOKS/authContextServ';
+import { auth } from "../firebase";
+import { user } from "../TYPES/USER";
+import { LoginProps } from "../TYPES/USER";
 
+const useLogIn = (obj: LoginProps) => {
+  const { setUser } = useAuth(); // Use setUser from Auth context
+  const navigate = useNavigate();
 
-interface user {
-  email: string;
-  password: string;
-}
-
-const useLogIn = (obj: user) => {
-
-  const signIn = async ({ email, password }: user) => {
+  const signIn = async ({ email, password }: LoginProps) => {
     try {
-
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user;
+      const userInfo = userCredential.user;
 
-      const userData = {
-        uid: userCredential.user.uid,
-        email: userCredential.user.email
+      const userData: user = {
+        id: userCredential.user.uid,
+        email: userCredential.user.email,
+        password: null,
       };
-      localStorage.setItem("login", JSON.stringify(userData));
 
-      return { user };
+      setUser(userData); // Set user data in context
     } catch (error) {
       console.error("Error during sign-in:", error);
       throw error;
     }
-  }
-  const navigate = useNavigate();
+  };
 
   const { mutate, isError, isSuccess } = useMutation({
     mutationFn: () => signIn(obj),
     onSuccess: () => {
       navigate("/dashboard");
-      console.log("USER ADDED");
+      console.log("USER LOGGED IN");
     },
     onError: (error) => {
-      console.log(mutate)
-      console.error("Error adding user:", error);
+      console.error("Error logging in user:", error);
     },
   });
-  return { mutate, isError, isSuccess };
 
+  return { mutate, isError, isSuccess };
 };
 
 export default useLogIn;
+
+

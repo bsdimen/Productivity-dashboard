@@ -17,11 +17,11 @@ const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const { mutate } = useLogIn({ email, password });
     const [errorMsg, setErrorMsg] = useState<boolean>(false);
 
     const [showPassword, setShowPassword] = useState<boolean>(false);
 
-    const { mutate, isError, isSuccess } = useLogIn({ email, password });
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -29,11 +29,7 @@ const Login = () => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        mutate();
-
-        if (isError) {
-            setErrorMsg(true);
-        }
+        mutate()
     }
 
     useEffect(() => {

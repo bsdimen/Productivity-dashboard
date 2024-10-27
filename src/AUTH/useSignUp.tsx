@@ -4,37 +4,41 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
 import { db } from "../firebase"; // Your Firestore configuration
 import { doc, setDoc } from "firebase/firestore";
-
-
-interface user {
-  email: string;
-  fullname: string;
-  password: string;
-}
+import { user } from "../TYPES/USER";
+import { useAuth } from '../HOOKS/authContextServ';
+import { useState } from "react";
 
 const useSignUp = (obj: user) => {
   const navigate = useNavigate();
+  const { setUser } = useAuth(); // Use setUser from Auth context
 
-  const signUp = async ({ email, fullname, password }: user) => {
+  const signUp = async (userData: user) => {
+    if (!userData.email || !userData.password || !userData.name) {
+      return null;
+    }
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, obj.email, obj.password);
+      const userCredential = await createUserWithEmailAndPassword(auth, userData.email, userData.password!);
       const user = userCredential.user;
 
-      // Save additional user data (if needed)
       await setDoc(doc(db, "users", user.uid), {
         uid: user.uid,
         email: user.email,
-        fullname: obj.fullname
+        name: userData.name,
       });
+
+      // Set the user in context after sign-up
+      const userInfo = {
+        id: user.uid,
+        email: user.email,
+        name: userData.name,
+        password: null
+      };
+      setUser(userInfo);
 
       return user;
     } catch (error) {
-      if (error) {
-        console.error("Firebase error during sign-up:", error);
-      } else {
-        console.error("Unexpected error during sign-up:", error);
-      }
-      throw error; // Re-throw the error if needed
+      console.error("Firebase error during sign-up:", error);
+      throw error;
     }
   };
 

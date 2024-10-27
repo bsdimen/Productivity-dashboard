@@ -1,36 +1,33 @@
+import { createContext, useContext, useState, ReactNode } from 'react';
+import { user } from "../TYPES/USER";
+import { LoginProps } from "../TYPES/USER";
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-
-
-
-interface  AuthProviderProps {
+interface AuthProviderProps {
   children: ReactNode;
 }
 
 interface AuthContextType {
-  isAuthenticated: boolean;
-  setIsAuthenticated:(isAuthenticated: boolean)=> void;
+  user: user | null;
+  setUser: (user: user | null) => void;
 }
 
-const AuthContext = createContext<AuthContextType|null>(null);
+const AuthContext = createContext<AuthContextType | null>(null);
 
 export function AuthProvider({ children }: AuthProviderProps) {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  useEffect(() => {
-    // Check if the user is logged in (you can check token or call an API)
-    const token = localStorage.getItem('authToken');
-    setIsAuthenticated(!!token);
-  }, []);
+  const [user, setUser] = useState<user | null>(null);
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
+    <AuthContext.Provider value={{ user, setUser }}>
       {children}
     </AuthContext.Provider>
   );
 }
 
 export function useAuth() {
-  return useContext(AuthContext);
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+  return context;
 }
 
