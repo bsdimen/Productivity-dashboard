@@ -2,8 +2,11 @@
 
 # dependencies
 /node_modules
+<<<<<<< HEAD
 /client/node_modules
 /server/node_modules
+=======
+>>>>>>> parent of 79a249e (reset)
 /.pnp
 .pnp.js
 
