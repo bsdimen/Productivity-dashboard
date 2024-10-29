@@ -23,7 +23,7 @@
 
 import React, { ReactNode } from 'react';
 import { Navigate } from 'react-router-dom';
-import { useAuth } from '../../HOOKS/authContextServ';
+import { useAuth } from '../../Services/authContextServ';
 
 interface ProtectedRouteProps {
   element: ReactNode;

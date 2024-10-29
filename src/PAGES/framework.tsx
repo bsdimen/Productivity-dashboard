@@ -1,16 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import SideNavBar from "../COMPONENTS/ui/sideNavBar"
 import TaskList from "../COMPONENTS/ui/taskList"
-import { getLoggedUser } from "../HOOKS/getLoggedUserServ"
+import { getLoggedUser } from "../Services/getLoggedUserServ"
+import useCreateFrame from '../HOOKS/FRAMEWORKS/useCreateFrame';
+import { useAuth } from '../Services/authContextServ';
+
+
+
+const Framework = () => {
+
+    const { user } = useAuth();
+    const frame = { title: "title test", description: "test desc", userId: user!.id }
+
+    const { mutate } = useCreateFrame(frame);
+    useEffect(() => {
+        mutate();
+    }, [])
 
 
 
 
 
-const user = getLoggedUser();
 
-const framework = () => {
-    const test = { title: "title test", desc: "test desc" }
+
     return (
         <div className='framework-container'>
             <SideNavBar />
@@ -21,14 +33,9 @@ const framework = () => {
                         <p>lorem*5</p>
                     </div>
 
+
                     <div className='task-lists'>
-                        <TaskList {...test} />
-                        <TaskList {...test} />
-                        <TaskList {...test} />
-                        <TaskList {...test} />
-                        <TaskList {...test} />
-                        <TaskList {...test} />
-                        <TaskList {...test} />
+
                     </div>
                 </div>
 
@@ -38,4 +45,4 @@ const framework = () => {
     );
 }
 
-export default framework;
+export default Framework;

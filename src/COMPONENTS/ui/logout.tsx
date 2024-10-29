@@ -1,6 +1,6 @@
 
 import { useEffect } from "react";
-import useLogOut from "../../AUTH/useLogOut";
+import useLogOut from "../../HOOKS/AUTH/useLogOut";
 
 const Logout = () => {
 

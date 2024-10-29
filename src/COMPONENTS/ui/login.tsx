@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { InfoIcon, LockIcon, LockSlashIcon } from "./icons";
 
 import { NavLink, useNavigate } from 'react-router-dom';
-import useLogIn from '../../AUTH/useLogin';
+import useLogIn from '../../HOOKS/AUTH/useLogin';
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,6}$/;
 

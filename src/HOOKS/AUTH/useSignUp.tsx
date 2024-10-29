@@ -35,11 +35,11 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../firebase";
-import { db } from "../firebase"; // Your Firestore configuration
+import { auth } from "../../firebase";
+import { db } from "../../firebase"; // Your Firestore configuration
 import { doc, setDoc } from "firebase/firestore";
-import { user } from "../TYPES/USER";
-import { useAuth } from '../HOOKS/authContextServ';
+import { user } from "../../TYPES/USER";
+import { useAuth } from '../../Services/authContextServ';
 
 const useSignUp = (obj: user) => {
   const navigate = useNavigate();
