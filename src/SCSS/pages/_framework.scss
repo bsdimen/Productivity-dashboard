@@ -6,20 +6,7 @@
     color: $darker-blue;
     background-color: $light-color-700;
 
-    .framework {
-        max-width: 100%;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        padding-block: 30px;
-        padding-inline: 30px;
-        overflow-x: hidden;
-
-    }
-
     .framework-wrapper {
-        overflow-x: hidden;
-
         .framework-heading {
             margin-block: 10px;
 
@@ -28,36 +15,15 @@
                 color: $darker-blue;
             }
         }
-    }
 
+        .framework-lists {
+            display: grid;
+            grid-template-rows: repeat(3, 1fr);
+            grid-auto-flow: column;
+            grid-template-columns: repeat(auto-fill, 300px);
 
-
-    .task-lists {
-        max-width: 100%;
-        margin-block: 15px;
-        display: flex;
-        flex-direction: row;
-        gap: 24px;
-        overflow-x: scroll;
-        position: relative;
-
-        .addIcon {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-
-            svg {
-
-                path {
-                    color: $accent-color;
-                }
-            }
+            overflow-y: auto;
         }
-
-
     }
 
-    ::-webkit-scrollbar-button {
-        visibility: hidden;
-    }
 }

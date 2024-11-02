@@ -141,15 +141,23 @@ button {
   gap: 24px;
 }
 .navbar nav .nav-link {
-  padding: 10px 30px;
+  padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: start;
   gap: 12px;
 }
+.navbar nav .nav-link .link-icon {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
 .navbar nav .nav-link span {
   font-weight: 500;
   color: #000e0f;
+}
+.navbar nav .nav-link svg {
+  width: 21px;
 }
 .navbar nav .nav-link.active {
   border-right: 3px solid #01565B;
@@ -451,18 +459,6 @@ button {
   color: #000e0f;
   background-color: rgba(233, 240, 240, 0.2039215686);
 }
-.framework-container .framework {
-  max-width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  padding-block: 30px;
-  padding-inline: 30px;
-  overflow-x: hidden;
-}
-.framework-container .framework-wrapper {
-  overflow-x: hidden;
-}
 .framework-container .framework-wrapper .framework-heading {
   margin-block: 10px;
 }
@@ -470,25 +466,12 @@ button {
   font-weight: 800;
   color: #000e0f;
 }
-.framework-container .task-lists {
-  max-width: 100%;
-  margin-block: 15px;
-  display: flex;
-  flex-direction: row;
-  gap: 24px;
-  overflow-x: scroll;
-  position: relative;
-}
-.framework-container .task-lists .addIcon {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-.framework-container .task-lists .addIcon svg path {
-  color: #d9f362;
-}
-.framework-container ::-webkit-scrollbar-button {
-  visibility: hidden;
+.framework-container .framework-wrapper .framework-lists {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-auto-flow: column;
+  grid-template-columns: repeat(auto-fill, 300px);
+  overflow-y: auto;
 }
 
 /*# sourceMappingURL=main.css.map */
