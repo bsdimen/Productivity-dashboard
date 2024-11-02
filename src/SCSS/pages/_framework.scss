@@ -6,12 +6,23 @@
     background-color: $light-color-700;
 
     .framework-wrapper {
+        padding-block: 30px;
+        padding-inline: 20px;
+        overflow-x: scroll;
+        width: 92vw;
+        height: fit-content;
+
         .framework-heading {
             margin-block: 10px;
 
             h2 {
                 font-weight: $bold;
                 color: $darker-blue;
+                margin-bottom: 10px;
+            }
+
+            p {
+                font-weight: 500;
             }
         }
 
@@ -19,16 +30,46 @@
             display: grid;
             grid-template-rows: repeat(3, 1fr);
             grid-auto-flow: column;
-            grid-template-columns: repeat(auto-fill, 500px);
-            overflow: hidden;
-            max-height: 600px;
+            grid-template-columns: repeat(auto-fill, 300px);
+            gap: 20px;
             width: 100%;
             scrollbar-width: thin;
             scrollbar-color: $darker-blue $light-color-700;
 
             .framework-item-container {
-                width: 500px;
-                /* Each item takes up the full width of a column */
+                width: 300px;
+                position: relative;
+                background-color: $light-background-color;
+                padding-inline: 20px;
+                padding-block: 8px;
+                border-radius: 10px;
+
+                .icons {
+                    position: absolute;
+                    right: 10px;
+                    top: 10px;
+
+                    svg {
+                        width: 21px;
+                        opacity: 0%;
+                        stroke-width: 1px;
+                    }
+                }
+
+                p {
+                    font-size: 13px;
+                    margin-block: 8px;
+                }
+
+                &.add-new-frame {
+                    min-height: 150px;
+                    background-color: $primary-color;
+                    color: #fff;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                }
             }
         }
     }

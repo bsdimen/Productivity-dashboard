@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import SideNavBar from "../COMPONENTS/ui/sideNavBar"
 import useCreateFrame from '../HOOKS/FRAMEWORKS/useCreateFrame';
 
-import { TrashIcon, PenIcon } from '../COMPONENTS/ui/icons';
+import { TrashIcon, PenIcon, AddCircleIcon } from '../COMPONENTS/ui/icons';
 import { useAuth } from '../CONTEXTS/authContextServ';
 
 
@@ -12,7 +12,7 @@ const Framework = () => {
     const { user } = useAuth();
     const frame = { title: "title test", description: "test desc", userId: user!.id }
 
-    const { mutate } = useCreateFrame(frame);
+    // const { mutate } = useCreateFrame(frame);
     useEffect(() => {
 
     }, [])
@@ -34,16 +34,10 @@ const FramesContainer = () => {
             <p>you will find here all your frameworks..Feel free to add more based on your needs</p>
         </div>
         <div className='framework-lists'>
-            <FrameworkItem />
-            <FrameworkItem />
-            <FrameworkItem />
-            <FrameworkItem />
-            <FrameworkItem />
-            <FrameworkItem />
-            <FrameworkItem />
-            <FrameworkItem />
-            <FrameworkItem />
-            <FrameworkItem />
+            <div className='framework-item-container add-new-frame'>
+                <AddCircleIcon />
+                <h3>Add New Framework</h3>
+            </div>
 
         </div>
     </div>
@@ -60,7 +54,17 @@ const FrameworkItem = () => {
             <TrashIcon />
         </div>
         <h3>Heading of frame</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat</p>
-        <button>See More</button>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et</p>
+        <button className="inline-btn">See More</button>
+    </div>
+}
+
+const AddNewFrameTab = () => {
+    return <div className='add-new-frame-tab'>
+        <div className='frme-inputs'>
+            <input type='text' placeholder='What do you want to call this framework?' />
+            <input type='text' placeholder='Write a discription for this framework' />
+
+        </div>
     </div>
 }
