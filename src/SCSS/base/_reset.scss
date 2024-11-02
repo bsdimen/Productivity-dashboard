@@ -1,5 +1,5 @@
 // Reset default margins and paddings
-*{
+* {
     margin: 0;
     padding: 0;
     border: 0;
@@ -7,8 +7,13 @@
     box-sizing: border-box; // Modern box model
 }
 
+body {
+    overflow: hidden;
+}
+
 // Remove default list styles
-ul, ol {
+ul,
+ol {
     list-style: none;
 }
 
@@ -17,4 +22,3 @@ a {
     text-decoration: none;
     color: inherit;
 }
-

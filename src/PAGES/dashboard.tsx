@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import SideNavBar from "../COMPONENTS/ui/sideNavBar"
-import { useAuth } from '../Services/authContextServ';
+import { useAuth } from '../CONTEXTS/authContextServ';
 
 const Dashboard = () => {
     const { user } = useAuth();

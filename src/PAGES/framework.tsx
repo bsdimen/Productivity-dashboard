@@ -3,7 +3,7 @@ import SideNavBar from "../COMPONENTS/ui/sideNavBar"
 import useCreateFrame from '../HOOKS/FRAMEWORKS/useCreateFrame';
 
 import { TrashIcon, PenIcon } from '../COMPONENTS/ui/icons';
-import { useAuth } from '../Services/authContextServ';
+import { useAuth } from '../CONTEXTS/authContextServ';
 
 
 

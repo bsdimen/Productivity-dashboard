@@ -35,7 +35,7 @@
 import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { useAuth } from '../../Services/authContextServ';
+import { useAuth } from '../../CONTEXTS/authContextServ';
 import { auth } from "../../firebase";
 import { user } from "../../TYPES/USER";
 import { LoginProps } from "../../TYPES/USER";
